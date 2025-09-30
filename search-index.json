@@ -1,0 +1,5 @@
+[
+  { "title": "Home", "href": "index.html", "snippet": "Welcome to our homepage" },
+  { "title": "Services", "href": "services.html", "snippet": "Explore our services" },
+  { "title": "Products", "href": "products.html", "snippet": "See available products" }
+]
