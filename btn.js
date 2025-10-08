@@ -104,20 +104,20 @@
     mergedIndex = combined;
   }
 
-  // Open / close helpers
-  function openWidget() {
-    widget.classList.add('open');
-    setTimeout(function () { if (input) input.focus(); }, 120);
+  function openWidget() { widget.classList.add("open");
+     setTimeout(() => input && input.focus(), 120); 
     buildDomIndex();
     mergeIndexes();
   }
-  function closeWidget() {
-    widget.classList.remove('open');
-    if (input) input.value = '';
-    renderSuggestions([]);
+  function closeWidget() { if (!widget.classList.contains("open")) return; 
+    widget.classList.add("closing"); 
+    if (input) input.value = ""; 
+    if (suggBox) suggBox.innerHTML = ""; 
     activeIdx = -1;
-  }
 
+ setTimeout(() => widget.classList.remove("open"), 160); 
+ 
+ setTimeout(() => widget.classList.remove("closing"), 1000); }
   // Render suggestions
   function renderSuggestions(list) {
     if (!suggBox) return;

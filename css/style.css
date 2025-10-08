@@ -404,10 +404,7 @@ html{scroll-behavior: smooth;}
 }
 /*** Navbar End ***/
 
-
 /*** Carousel Hero Header Start ***/
-
-
 .hero-bg-half-1 {
     background-image: url(../img/welcome.jpg);
     filter: grayscale(10%);
@@ -420,7 +417,6 @@ html{scroll-behavior: smooth;}
     right: 0;
     top: 0;
 }
-
 .hero-bg-half-2 {
     background-image: url(../img/ext.jpg);
     filter: grayscale(10%);
@@ -433,7 +429,6 @@ html{scroll-behavior: smooth;}
     right: 0;
     top: 0;
 }
-
 .hero-bg-half-3 {
     background-image: url(../img/sleep.jpg);
     filter: grayscale(10%);
@@ -557,12 +552,12 @@ html{scroll-behavior: smooth;}
     content: "";
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0, 0, 0, 0.37); 
+    background: rgba(0, 0, 0, 0.64); 
     z-index: 1;
     transition: 0.6s ease;
 }
 .header-carousel .header-carousel-item:hover::before {
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.19);
 }
 
 @media (max-width: 991px) {
@@ -583,9 +578,10 @@ html{scroll-behavior: smooth;}
 }
 .arrow{
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 52.88%;
+  left: 53%;
   transform: translate(-50%, -50%);
+  margin-top: 18px;
 }
 .arrow span{
   display: block;
@@ -594,7 +590,7 @@ html{scroll-behavior: smooth;}
   border-bottom: 5px solid #ff9615;
   border-right: 5px solid #ff9615;
   transform: rotate(-45deg);
-  margin: -20px;
+  margin: -23px;
   animation: scroll 2s infinite;
 }
 .arrow span:nth-child(2){animation-delay: -.2s;}
@@ -607,30 +603,183 @@ html{scroll-behavior: smooth;}
   100%{ opacity: 0;
   transform: rotate(45deg) translate(20px, 20px);}
 }
+.learn-more-box {
+  display: inline-block;
+  margin-top: 58px;
+  margin-left: -66px;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.089);
+  border: 1px solid rgba(255, 255, 255, 0.171);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(11px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.arrow a:hover .learn-more-box {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.arrow.show-box .learn-more-box {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 480px){
+  .arrow{top:55.5%;
+  left: 58.68%;}
+  .arrow span{width: 30px;
+  height: 30px;}
+.learn-more-box{padding: 6px 12px;}}
+
+@media (max-width: 768px) {
+  .arrow{top: 55.5%;
+  left: 56.55%;}
+  .arrow span{width:34px;
+  height: 34px;
+margin: -24.2px;}
+  .learn-more-box{padding: 8px 16px ;}
+}
+/* Prime Marine mini-tabs — keep after header-carousel styles */
+.pm-tabs-wrapper {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: calc(52.88% + 136px);
+  z-index: 12;
+  width: 78%;
+  max-width: 720px;
+  pointer-events: auto;
+}
+
+/* outer glass-like container (visual only) */
+.pm-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 13px;
+}
+
+/* single tab button */
+.pm-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 18px;
+  border-radius: 14px;
+  min-width: 160px;
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(7px) saturate(120%);
+  color: rgba(255,255,255,0.92);
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(3, 11, 44, 0.598);
+  background-clip: padding-box;
+}
+
+
+/* label scaling for 3D feel */
+.pm-label {
+  display: inline-block;
+  transform-origin: left center;
+  color: #ffffff;
+}
+
+/* divider bar between tabs */
+.pm-divider {
+  display: block;
+  width: 2px;
+  height: 52px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.361), rgba(255, 255, 255, 0.178));
+  border-radius: 4px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+}
+
+/* icon svg styling (uses currentColor) */
+.pm-icon svg { transition: stroke 160ms ease; }
+
+/* make sure the icon wrapper exists and can be animated */
+.pm-icon {
+  display: inline-grid;
+  position: relative;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  margin-left: 4px;
+  margin-right: 0;
+  background: transparent; /* keep no circle */
+  border-radius: 0;
+  transition: color 180ms ease;
+  will-change: transform;
+  /* ensure the icon sits visually on the tab surface */
+  box-shadow: none;
+}
+
+.pm-icon::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%) translateY(10px) scale(0.85);
+  width: 40px;             
+  height: 12px;               
+  background: rgba(0,0,0,0.56);
+  border-radius: 50%;
+  filter: blur(6px);         
+  opacity: 0;                
+  pointer-events: none;
+  transition: opacity 360ms cubic-bezier(.2,.8,.2,1),
+  transform 360ms cubic-bezier(.2,.8,.2,1),
+  width 360ms cubic-bezier(.2,.8,.2,1);
+  z-index: -1;                /* keep it visually beneath the icon */
+}
+/* change icon color on parent hover — accent color (edit if needed) */
+.pm-tab:hover .pm-icon,
+.pm-tab:focus .pm-icon {
+  color: #F68A0A;
+}
+
+/* smooth lift keyframes: gentle lift then settle */
+@keyframes pm-lift-smooth {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-11px); }   /* lift */
+  100% { transform: translateY(0); }       /* back to rest */
+}
+
+/* trigger a single iteration of the bounce on hover */
+.pm-tab:hover .pm-icon,
+.pm-tab:focus .pm-icon {
+  animation: pm-lift-smooth 620ms cubic-bezier(.22,.9,.27,1) 1;
+  animation-fill-mode: none;
+}
+
+.pm-tab:hover .pm-icon::after,
+.pm-tab:focus .pm-icon::after {
+  opacity: 0.68;
+  transform: translateX(-50%) translateY(2px) scale(1.05);
+  width: 44px;
+}
+
+/* tune svg stroke color on hover (svg uses currentColor) */
+.pm-icon::after { opacity: 0; }
+
+@media (max-width: 520px) { .pm-tabs-wrapper{top: calc(52.88% + 90px) ;}
+.pm-tab{padding: 10px 16px;}
+}
+@media (max-width: 768px) { .pm-tabs-wrapper{top: calc(52.88% + 90px);}}
 /*** Carousel Hero Header End ***/
-
-
-/*** Single Page Hero Header Start ***/
-.bg-breadcrumb {
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../img/banner-img.jpg);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 60px 0 60px 0;
-    transition: 0.5s;
-}
-
-.bg-breadcrumb .breadcrumb {
-    position: relative;
-}
-
-.bg-breadcrumb .breadcrumb .breadcrumb-item a {
-    color: var(--bs-white);
-}
-/*** Single Page Hero Header End ***/
-
 
 /*** Banner Start ***/
 .banner {
@@ -1458,8 +1607,13 @@ transition: transform 0.35s cubic-bezier(0.77,0,0.175,1), box-shadow 0.35s cubic
 
 /* responsive */
 @media (max-width: 520px) {
-  .nav-bt.left { left: 6px; transform: none; top: calc(100% - 36px); ;}
-  .nav-bt.right { right: 6px; transform: none; top: calc(100% - 36px);}
+  .nav-bt.left {  left: 1px;  top: calc(44% - 3px); background: none; z-index: 0; }
+  .nav-bt.right { right: 1px; top: calc(44% - 3px); background: none; z-index: 0;}
+}
+
+@media (max-width: 991px) {
+  .nav-bt.left {  left: 1px;  top: calc(44% + 8.8px); background: none; z-index: 0; }
+  .nav-bt.right { right: 1px; top: calc(44% - 8.8px); background: none; z-index: 0;}
 }
 
 /* centered dots under carousel */
@@ -1795,7 +1949,7 @@ transition: transform 0.2s ease, color 0.2s ease;}
   right: 0;
   top: 0;                       /* aligns with button - expands over navbar area */
   transform-origin: top right;
-  width: 52px;                  /* collapsed width (same as button) */
+  width: 52px;                
   height: 52px;
   overflow: hidden;
   border-radius: 999px;
@@ -1815,6 +1969,18 @@ transition: transform 0.2s ease, color 0.2s ease;}
   pointer-events: auto;
   background: #ffffff;
   box-shadow: 0 10px 30px rgba(2,6,23,0.12);
+}
+
+#pm-search-widget.closing #pm-search-panel {
+  width: 52px;       
+  background: transparent;
+  box-shadow: none;
+  border-radius: 50%;
+  transition: 
+    width 500ms cubic-bezier(.3,.7,.4,1),
+    background 300ms ease,
+    box-shadow 300ms ease,
+    border-radius 300ms ease;
 }
 /* -------------------------
    Suggestions panel (dropdown)
@@ -2004,6 +2170,18 @@ transition: transform 0.2s ease, color 0.2s ease;}
     right: 20px;
     width: calc(100vw - 40px);
   }
+
+  #pm-search-widget.closing #pm-search-panel {
+  width: 52px;       
+  background: transparent;
+  box-shadow: none;
+  border-radius: 50%;
+  transition: 
+    width 500ms cubic-bezier(.3,.7,.4,1),
+    background 300ms ease,
+    box-shadow 300ms ease,
+    border-radius 300ms ease;
+}
 }
 
 /* -------------------------
